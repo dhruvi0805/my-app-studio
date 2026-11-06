@@ -1,16 +1,20 @@
 {
-  "name": "Your Project",
-  "audience": "Not chosen yet",
-  "archetype": "Not chosen yet",
-  "promise": "Not chosen yet",
-  "headline": "A small idea. A real application.",
-  "summary": "This working page is your starting point. Give it a purpose and a brand, then build accounts and permissions one feature at a time.",
-  "voice": ["Not chosen yet"],
-  "design_direction": "Not chosen yet",
+  "name": "FunnyMoney",
+  "audience": "Gen Z students learning to budget while enjoying their social lives",
+  "archetype": "The Everyperson: a playful, supportive companion",
+  "promise": "Build better money habits without giving up your social life.",
+  "headline": "Budget smart. Live fun.",
+  "summary": "Adulting is a new level. You do not have to play solo. Meet a friendlier approach to budgeting, built around small wins and room for the things you love.",
+  "voice": [
+    "Playful",
+    "Encouraging",
+    "Approachable"
+  ],
+  "design_direction": "Full-width pixel sky and clouds, grassy ground, original coral pig and coin; Pixelify Sans headings, Oxanium body, sticky navigation, light blue dominant with dark green/navy and yellow highlights.",
   "palette": {
-    "ink": "#182C34",
-    "paper": "#F6F5EF",
-    "accent": "#285A50",
-    "surface": "#FFFFFF"
+    "ink": "#173D2B",
+    "paper": "#C6EAF2",
+    "accent": "#006D77",
+    "surface": "#7FDBFF"
   }
 }
