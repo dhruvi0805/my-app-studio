@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Access denied · {{ brand.name }}{% endblock %}
+{% block content %}
+<section class="panel member-panel" aria-labelledby="denied-title">
+  <p class="eyebrow">403 · Forbidden</p>
+  <h1 id="denied-title">Admin access required</h1>
+  <p>You are logged in, but this page requires an admin account. Your member space is still available.</p>
+  <a class="button" href="/dashboard">Member space <span aria-hidden="true">→</span></a>
+</section>
+{% endblock %}
