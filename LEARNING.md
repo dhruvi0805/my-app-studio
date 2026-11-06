@@ -25,17 +25,17 @@ Accuracy approval is not proof of understanding. Label simulated trials explicit
 - Keep decision: Learner chose to keep the flow because users should stay logged out until they choose to log in again with credentials. Learner associated this with protecting their information; AI clarified that the tested boundary does not establish whole-app security.
 - Review: Learner approved the new APP-002 summary for accuracy and publication before commit/push. Approval confirms record accuracy, not understanding.
 - Help/gaps: AI proposed the bounded account plan; learner approved. AI explained password hashes and that a JWT signature verifies authenticity rather than encrypting contents. AI implemented forms/API with prepared security helpers and checked browser layouts. Budgeting personalization remains outside scope. Learner did not explicitly report a direct /dashboard revisit after logout; their reported observation and AI redirect check remain distinct.
-- Evidence links / next step: Issue https://github.com/dhruvi0805/my-app-studio/issues/3; branch codex/app-002-accounts. Full cumulative checks passed. PR, CI and merge: Pending.
+- Evidence links / next step: Issue https://github.com/dhruvi0805/my-app-studio/issues/3; branch codex/app-002-accounts. Full cumulative checks passed. PR https://github.com/dhruvi0805/my-app-studio/pull/4 merged; issue #3 closed; both main CI jobs and local merged-main check verified passing.
 
 ## APP-003
 
-- Prediction: Pending.
-- Check interpretation: Pending.
-- Browser observation: Pending.
-- Keep decision: Pending.
-- Review: Pending.
-- Help/gaps: Pending.
-- Evidence links / next step: Keep APP-002 before agreeing this lesson.
+- Prediction: Learner expects a logged-in member directly requesting /api/admin to receive forbidden access. Learner explained that hiding the Admin link only hides interface content; the server must check permissions whenever a protected endpoint is requested (paraphrase).
+- Check interpretation: Learner explained that downgrading an admin to member removed /api/admin access without another login, showing the server checks current permissions rather than relying on an old admin session (paraphrase).
+- Browser observation: Learner reported a member saw admin access required/forbidden, gained admin access after trusted terminal promotion, then returned to member access after changing back and refreshing in the same login session.
+- Keep decision: Learner chose to keep current-role enforcement so only users with current admin privileges can access admin features and downgrade removes unauthorized access. AI clarified that the new role is enforced on the next request/refresh; already displayed content does not erase itself.
+- Review: Learner approved the APP-003 notes for accuracy and publication before commit/push. Approval confirms record accuracy, not understanding.
+- Help/gaps: AI proposed the bounded admin project-status page/API and explained authentication versus authorization. Learner approved scope and plan. AI implemented routes using the prepared guard and current database role; no public role-changing endpoint. AI ran full cumulative checks and guided promotion/downgrade with the trusted terminal command. Learner interpreted a real check, inspected the behavior, chose to keep it and approved this summary.
+- Evidence links / next step: Issue https://github.com/dhruvi0805/my-app-studio/issues/5; branch codex/app-003-roles. Full cumulative checks passed; learner inspection and keep decision recorded. PR/CI/merge: Pending.
 
 ### APP-001 assistance and visitor reasoning
 Learner explained that budgeting can feel boring, stressful and intimidating; a friendly companion can reduce loneliness and make budgeting manageable while enjoying life. Learner reports research found people more comfortable budgeting with a companion; AI has not independently verified it. AI explained brand, proposed scope/promise/companion character, and wrote page copy, SVG and CSS. Learner supplied the palette and references. Learner authorized keeping and publishing the reviewed record.

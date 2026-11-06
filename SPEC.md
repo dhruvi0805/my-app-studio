@@ -6,10 +6,10 @@ actual evidence; pending is a valid state. Keep explanations/help in
 
 ## Current stage
 
-- **Current feature:** APP-002.
-- **Status:** APP-002 implementation kept and learner record approved; preparing PR.
-- **Next step:** Publish kept changes, open PR and verify CI before the learner decides whether to merge.
-- **Implementation marker:** `studio.json` is at `implemented_through: 2` after passing cumulative checks.
+- **Current feature:** APP-003.
+- **Status:** APP-003 implementation kept and learner record approved; preparing PR.
+- **Next step:** Commit/push kept changes, open PR and verify latest CI before merge.
+- **Implementation marker:** `studio.json` is at `implemented_through: 3` after passing cumulative checks.
 
 This repository owns application code. Server/proxy changes and production
 deployment are outside these three local-development lessons. Prepared helpers
@@ -43,7 +43,7 @@ helpers; keep data local. New accounts cannot choose their role.
 |---|---|
 | Expected public/private behavior and account flow | Signup creates a member; anonymous /dashboard redirects to /login; login shows username/member status; logout revokes session and redirects to /login |
 | Valid and rejected cases to demonstrate | Valid signup/login; reject duplicate/invalid signup, role input, wrong credentials, missing CSRF and revoked/expired sessions |
-| Own issue / branch / PR | https://github.com/dhruvi0805/my-app-studio/issues/3; codex/app-002-accounts; PR Pending |
+| Own issue / branch / PR | https://github.com/dhruvi0805/my-app-studio/issues/3; codex/app-002-accounts; PR https://github.com/dhruvi0805/my-app-studio/pull/4 merged |
 
 **Keep when:** the agreed forms/API work; duplicate/invalid signup and wrong
 credentials are rejected; passwords are hashed; authentication uses validated,
@@ -65,9 +65,9 @@ permissions, including for an existing session after a role change.
 
 | Decision | Agreement |
 |---|---|
-| Intended admin-only result | Pending |
-| Actual allowed/denied request evidence | Pending |
-| Own issue / branch / PR | Pending |
+| Intended admin-only result | Project status at /admin and /api/admin; anonymous login required, member forbidden, admin allowed. Role changes affect existing sessions on next request |
+| Actual allowed/denied request evidence | /api/admin: anonymous 401, member 403, admin 200; same session after downgrade 403. HTML anonymous redirects to login and members receive 403. Verified in isolated Chromium and cumulative contracts |
+| Own issue / branch / PR | https://github.com/dhruvi0805/my-app-studio/issues/5; codex/app-003-roles; PR Pending |
 
 **Keep when:** a direct request cannot bypass the role boundary, role changes
 take effect as specified, new signup remains member-only, and full cumulative
@@ -82,8 +82,8 @@ customer research or claims that a timestamp proves learning.
 | Feature | Files / own issue / PR | Actual checks and learner observations | Kept / GitHub state |
 |---|---|---|---|
 | APP-001 | app/brand.json, templates/home.html, templates/base.html, static/site.css, static/logo.svg, static/pig.svg, static/fonts; issue #1 | Full check: 98 foundation/tooling/helper tests, 2 APP-001 contracts, 2 Chromium checks passed; fonts, sticky header and overflow inspected at 390/768/1440px; learner contributions in LEARNING.md | PR #2 merged, issue #1 closed; both main CI jobs and local merged-main checks verified passing |
-| APP-002 | app/features/accounts.py, app/templates/account.html, app/templates/dashboard.html, app/static/site.css, tests/test_accounts_boundary.py; issue #3 | Full check: 100 foundation/helper/boundary tests, 14 cumulative contracts, 2 Chromium journeys passed. Learner login/logout observation in LEARNING.md | Learner kept flow and approved record; PR/CI/merge Pending |
-| APP-003 | Pending | Unfinished; explicit contracts not yet passed | Pending |
+| APP-002 | app/features/accounts.py, app/templates/account.html, app/templates/dashboard.html, app/static/site.css, tests/test_accounts_boundary.py; issue #3 | Full check: 100 foundation/helper/boundary tests, 14 cumulative contracts, 2 Chromium journeys passed. Learner login/logout observation in LEARNING.md | PR #4 merged; issue #3 closed; both main CI jobs and local merged-main checks verified passing |
+| APP-003 | app/features/roles.py, app/templates/admin.html, app/templates/forbidden.html; issue https://github.com/dhruvi0805/my-app-studio/issues/5; codex/app-003-roles | Full check: 100 foundation/helper/boundary tests, 18 cumulative contracts, 2 Chromium journeys passed; learner member/promotion/downgrade observations and interpretation in LEARNING.md | Learner kept behavior and approved record; PR/CI/merge Pending |
 
 The instructor's reference branches show possible implementations. They do not
 establish this repository's completion or the learner's own reasoning.
@@ -100,3 +100,7 @@ Kept final iteration: green continuation below grass, cream/yellow text, shaded 
 APP-002 agreed scope: signup/login forms and REST endpoints, private dashboard showing username/member status, logout with server revocation. Anonymous dashboard requests redirect to /login; authenticated requests show the current account. No budgeting feature or admin routes. Issue https://github.com/dhruvi0805/my-app-studio/issues/3 verified open with APP-002 marker; branch codex/app-002-accounts. Reject duplicate/invalid signup, signup role input, wrong login, missing CSRF and revoked sessions. Use prepared password hashing, signed expiring JWT cookies, SQLite and limits. Full checks passed; learner inspected login/logout and chose to keep.
 
 APP-002 local validation: full explicit cumulative check passed (100 foundation/helper tests, 14 APP-001/002 contracts, 2 Chromium journeys). AI inspected desktop signup and narrow member layout; all account pages fit 390px. Added tests/test_accounts_boundary.py for expired database sessions and HTML role injection. Browser forms and JSON endpoints share prepared signup/login/logout services. Marker set to 2 after explicit check; normal full check also passed. Learner inspected login/logout, kept the flow and approved the record. Direct /dashboard revisit not explicitly reported; AI checked the redirect.
+
+APP-003 agreement: small read-only admin project status page/API using the prepared trusted role helper. Signup stays member-only. Database role is checked on every request, including after promotion/downgrade in existing sessions. No public role editor or budgeting feature. Files: app/features/roles.py, app/templates/admin.html, app/templates/forbidden.html. Full checks passed; learner inspected member denial, promotion and downgrade and chose to keep.
+
+APP-003 validation: full explicit check passed (100 foundation/helper/boundary tests, 18 cumulative contracts, 2 Chromium journeys). AI inspected desktop/narrow admin and forbidden pages and verified trusted role command promotion/downgrade in an existing session with a disposable database. No overflow at 390/1440px. Normal full check after marker change also passed. Learner interpreted the downgrade check, reported member/promotion/downgrade behavior, chose to keep it and approved the summary.
