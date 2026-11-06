@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
 <section class="hero" aria-labelledby="hero-title">
-<div class="sky-cloud cloud-a" aria-hidden="true"></div><div class="sky-cloud cloud-b" aria-hidden="true"></div><div class="sky-cloud cloud-c" aria-hidden="true"></div><div class="sky-cloud cloud-d" aria-hidden="true"></div>
+<div class="sky-cloud cloud-a" aria-hidden="true"></div><div class="sky-cloud cloud-b" aria-hidden="true"></div><div class="sky-cloud cloud-c" aria-hidden="true"></div><div class="sky-cloud cloud-d" aria-hidden="true"></div><div class="sky-cloud cloud-e" aria-hidden="true"></div><div class="sky-cloud cloud-f" aria-hidden="true"></div><div class="sky-cloud cloud-g" aria-hidden="true"></div>
 <div class="hero-copy"><h1 id="hero-title">{{ brand.headline }}</h1><p class="hero-tagline">Level up your finances!</p>
 {% if features.accounts %}<a class="button" href="/signup">Get Started →</a>{% else %}<a class="button" href="#idea">Get Started →</a>{% endif %}
 <p class="hero-note">Meet the FunnyMoney concept</p></div>
-<div class="pixel-scene" aria-hidden="true"><span class="pixel-spark spark-one">✦</span><span class="pixel-spark spark-two">✦</span><img class="hero-pig" src="/static/logo.svg" alt="" width="400" height="400"></div>
-<div class="grass" aria-hidden="true"></div>
+<div class="pixel-scene" aria-hidden="true"><span class="pixel-spark spark-one">✦</span><span class="pixel-spark spark-two">✦</span><img class="hero-pig" src="/static/pig.svg" alt="" width="400" height="461"></div>
+<div class="grass grass-back" aria-hidden="true"></div><div class="grass grass-front" aria-hidden="true"></div>
 </section>
 <section id="idea" class="two-column" aria-labelledby="idea-title"><div><p class="eyebrow">Less stress. More possibility.</p><h2 id="idea-title">Your budget has room for fun.</h2></div><div><p class="promise">{{ brand.promise }}</p><p>Between classes, coffee runs and plans with friends, money can feel like one more thing to figure out. FunnyMoney imagines budgeting as a supportive companion: encouraging, a little playful, and on your side.</p></div></section>
 <section class="concept" aria-labelledby="concept-title"><p class="eyebrow">The concept · features we imagine</p><h2 id="concept-title">A friendlier way to level up.</h2><div class="concept-grid">
