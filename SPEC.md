@@ -6,10 +6,10 @@ actual evidence; pending is a valid state. Keep explanations/help in
 
 ## Current stage
 
-- **Current feature:** APP-001.
-- **Status:** APP-001 implementation and learner record approved; preparing PR.
+- **Current feature:** APP-002.
+- **Status:** APP-002 implementation kept and learner record approved; preparing PR.
 - **Next step:** Publish kept changes, open PR and verify CI before the learner decides whether to merge.
-- **Implementation marker:** `studio.json` is at `implemented_through: 1` after passing cumulative checks.
+- **Implementation marker:** `studio.json` is at `implemented_through: 2` after passing cumulative checks.
 
 This repository owns application code. Server/proxy changes and production
 deployment are outside these three local-development lessons. Prepared helpers
@@ -26,7 +26,7 @@ Keep account actions honest about their unfinished state.
 | Visitor and concrete use situation | Gen Z students exploring approachable budgeting alongside a social life |
 | Reused IS117 brand, or name / promise / primary archetype | FunnyMoney; build better money habits without giving up your social life; playful supportive companion (AI archetype label: Everyperson) |
 | One visible choice and visitor benefit | Consistent pixel typography and inviting landscape; learner links consistency to brand credibility and playful styling to approachability |
-| Own issue / branch / PR | Issue https://github.com/dhruvi0805/my-app-studio/issues/1; codex/app-001-funnymoney; PR pending |
+| Own issue / branch / PR | Issue https://github.com/dhruvi0805/my-app-studio/issues/1; codex/app-001-funnymoney; PR https://github.com/dhruvi0805/my-app-studio/pull/2 merged |
 
 **Keep when:** the agreed identity is visible and usable at desktop/narrow widths;
 full foundation + APP-001 checks pass; AI review and the learner's actual check
@@ -41,9 +41,9 @@ helpers; keep data local. New accounts cannot choose their role.
 
 | Decision | Agreement |
 |---|---|
-| Expected public/private behavior and account flow | Pending |
-| Valid and rejected cases to demonstrate | Pending |
-| Own issue / branch / PR | Pending |
+| Expected public/private behavior and account flow | Signup creates a member; anonymous /dashboard redirects to /login; login shows username/member status; logout revokes session and redirects to /login |
+| Valid and rejected cases to demonstrate | Valid signup/login; reject duplicate/invalid signup, role input, wrong credentials, missing CSRF and revoked/expired sessions |
+| Own issue / branch / PR | https://github.com/dhruvi0805/my-app-studio/issues/3; codex/app-002-accounts; PR Pending |
 
 **Keep when:** the agreed forms/API work; duplicate/invalid signup and wrong
 credentials are rejected; passwords are hashed; authentication uses validated,
@@ -81,8 +81,8 @@ customer research or claims that a timestamp proves learning.
 
 | Feature | Files / own issue / PR | Actual checks and learner observations | Kept / GitHub state |
 |---|---|---|---|
-| APP-001 | app/brand.json, templates/home.html, templates/base.html, static/site.css, static/logo.svg, static/pig.svg, static/fonts; issue #1 | Full check: 98 foundation/tooling/helper tests, 2 APP-001 contracts, 2 Chromium checks passed; fonts, sticky header and overflow inspected at 390/768/1440px; learner contributions in LEARNING.md | Learner kept design and approved record; PR/CI/merge pending |
-| APP-002 | Pending | Unfinished; explicit contracts not yet passed | Pending |
+| APP-001 | app/brand.json, templates/home.html, templates/base.html, static/site.css, static/logo.svg, static/pig.svg, static/fonts; issue #1 | Full check: 98 foundation/tooling/helper tests, 2 APP-001 contracts, 2 Chromium checks passed; fonts, sticky header and overflow inspected at 390/768/1440px; learner contributions in LEARNING.md | PR #2 merged, issue #1 closed; both main CI jobs and local merged-main checks verified passing |
+| APP-002 | app/features/accounts.py, app/templates/account.html, app/templates/dashboard.html, app/static/site.css, tests/test_accounts_boundary.py; issue #3 | Full check: 100 foundation/helper/boundary tests, 14 cumulative contracts, 2 Chromium journeys passed. Learner login/logout observation in LEARNING.md | Learner kept flow and approved record; PR/CI/merge Pending |
 | APP-003 | Pending | Unfinished; explicit contracts not yet passed | Pending |
 
 The instructor's reference branches show possible implementations. They do not
@@ -96,3 +96,7 @@ Branch: codex/app-001-funnymoney. Learner supplied issue: https://github.com/dhr
 Revision agreement: full-width light-blue pixel sky, clouds, grass, cute pig/coin; consistent Pixelify Sans headings and Oxanium body, dark green/navy text, yellow highlights, pixel buttons and sticky navigation. Learner requested revision because font inconsistency and monotonous color could distract visitors and weaken credibility. Fonts served locally with OFL licenses. Full revised checks passed; learner inspected and chose to proceed.
 
 Kept final iteration: green continuation below grass, cream/yellow text, shaded blue sky with more clouds, layered multi-strand grass and learner-supplied pig.svg with background cleaned. Prior version was staged as an iteration checkpoint. Learner subsequently kept the latest iteration and approved the evidence for publication.
+
+APP-002 agreed scope: signup/login forms and REST endpoints, private dashboard showing username/member status, logout with server revocation. Anonymous dashboard requests redirect to /login; authenticated requests show the current account. No budgeting feature or admin routes. Issue https://github.com/dhruvi0805/my-app-studio/issues/3 verified open with APP-002 marker; branch codex/app-002-accounts. Reject duplicate/invalid signup, signup role input, wrong login, missing CSRF and revoked sessions. Use prepared password hashing, signed expiring JWT cookies, SQLite and limits. Full checks passed; learner inspected login/logout and chose to keep.
+
+APP-002 local validation: full explicit cumulative check passed (100 foundation/helper tests, 14 APP-001/002 contracts, 2 Chromium journeys). AI inspected desktop signup and narrow member layout; all account pages fit 390px. Added tests/test_accounts_boundary.py for expired database sessions and HTML role injection. Browser forms and JSON endpoints share prepared signup/login/logout services. Marker set to 2 after explicit check; normal full check also passed. Learner inspected login/logout, kept the flow and approved the record. Direct /dashboard revisit not explicitly reported; AI checked the redirect.

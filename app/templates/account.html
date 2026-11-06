@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}{{ 'Create account' if mode == 'signup' else 'Log in' }} · {{ brand.name }}{% endblock %}
+{% block content %}
+<section class="account-shell panel" aria-labelledby="account-title">
+  <div class="account-intro"><p class="eyebrow">{{ 'A new level starts here' if mode == 'signup' else 'Welcome back, player one' }}</p>
+  <h1 id="account-title">{{ 'Create your account' if mode == 'signup' else 'Log in' }}</h1>
+  <p>{{ 'Your own little corner of FunnyMoney. Start with a username and a throwaway password for this local project.' if mode == 'signup' else 'Pick up where you left off. Your member space is one login away.' }}</p>
+  <img class="account-pig" src="/static/pig.svg" width="157" height="181" alt="Pixel piggy bank with a coin">
+  </div>
+  <form class="form-stack" method="post" action="/{{ mode }}">
+    {% if error %}<p role="alert">{{ error }}</p>{% endif %}
+    <input type="hidden" name="csrf_token" value="{{ csrf }}">
+    <label for="username">Username</label>
+    <p class="field-help" id="username-help">{{ '3–32 letters, numbers or underscores.' if mode == 'signup' else 'Use the username you signed up with.' }}</p>
+    <input id="username" name="username" type="text" required maxlength="32" {% if mode == 'signup' %}minlength="3" pattern="[A-Za-z0-9_]{3,32}" autocomplete="username"{% else %}autocomplete="username"{% endif %} value="{{ username or '' }}" aria-describedby="username-help" autocapitalize="none" spellcheck="false">
+    <label for="password">Password</label>
+    <p class="field-help" id="password-help">{{ 'Use 15–128 characters. Choose a throwaway password, not one you use elsewhere.' if mode == 'signup' else 'Your password stays out of the page after submission.' }}</p>
+    <input id="password" name="password" type="password" required maxlength="128" {% if mode == 'signup' %}minlength="15" autocomplete="new-password"{% else %}autocomplete="current-password"{% endif %} aria-describedby="password-help">
+    <button class="button" type="submit">{{ 'Create account' if mode == 'signup' else 'Log in' }} <span aria-hidden="true">→</span></button>
+    <p class="account-switch">{% if mode == 'signup' %}Already a member? <a href="/login">Log in</a>{% else %}New here? <a href="/signup">Create an account</a>{% endif %}</p>
+  </form>
+</section>
+{% endblock %}

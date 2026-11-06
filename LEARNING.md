@@ -15,17 +15,17 @@ Accuracy approval is not proof of understanding. Label simulated trials explicit
 - Keep decision: Revise the first design because inconsistent fonts and a monotonous palette could harm brand credibility. Learner chose to proceed with the final iteration and make further iterations later.
 - Review: Learner approved the summary and requested adding that multiple iterations developed consistent brand language and made the website more inviting; approved that addition before publication.
 - Help/gaps: AI suggested a revision; learner approved and supplied a precise sky/cloud/grass reference, pig/coin, pixel headings, boxy body, light-blue dominance and sticky scrolling request. AI interprets sticky scrolling as sticky navigation. AI implemented original SVG/CSS and locally hosted open-license fonts. Learner inspected the revised design and approved the summary before publication.
-- Evidence links / next step: Issue https://github.com/dhruvi0805/my-app-studio/issues/1; branch codex/app-001-funnymoney. Full APP-001 checks passed. PR/CI/merge verification remains pending.
+- Evidence links / next step: Issue https://github.com/dhruvi0805/my-app-studio/issues/1; branch codex/app-001-funnymoney. Full APP-001 checks passed. PR https://github.com/dhruvi0805/my-app-studio/pull/2 merged; issue #1 closed; both main CI jobs and local merged-main check verified passing.
 
 ## APP-002
 
-- Prediction: Pending.
-- Check interpretation: Pending.
-- Browser observation: Pending.
-- Keep decision: Pending.
-- Review: Pending.
-- Help/gaps: Pending.
-- Evidence links / next step: Keep APP-001 before agreeing this lesson.
+- Prediction: Learner expects the dashboard to redirect unauthenticated users to login or landing and block access; after successful login, show their account and relevant/personalized information (paraphrase). Agreed bounded implementation shows username and member status.
+- Check interpretation: Learner described the old-cookie test as checking lingering session access and also suggested changing account URLs. AI clarified that the actual test checks reuse of a logged-out session, not account-ID URL changes; /api/me uses the session identity.
+- Browser observation: Learner reported login worked and showed the member page; logout returned to the login page, and choosing login again required credentials. Direct /dashboard revisit was requested but not explicitly reported; AI separately checked the redirect.
+- Keep decision: Learner chose to keep the flow because users should stay logged out until they choose to log in again with credentials. Learner associated this with protecting their information; AI clarified that the tested boundary does not establish whole-app security.
+- Review: Learner approved the new APP-002 summary for accuracy and publication before commit/push. Approval confirms record accuracy, not understanding.
+- Help/gaps: AI proposed the bounded account plan; learner approved. AI explained password hashes and that a JWT signature verifies authenticity rather than encrypting contents. AI implemented forms/API with prepared security helpers and checked browser layouts. Budgeting personalization remains outside scope. Learner did not explicitly report a direct /dashboard revisit after logout; their reported observation and AI redirect check remain distinct.
+- Evidence links / next step: Issue https://github.com/dhruvi0805/my-app-studio/issues/3; branch codex/app-002-accounts. Full cumulative checks passed. PR, CI and merge: Pending.
 
 ## APP-003
 
